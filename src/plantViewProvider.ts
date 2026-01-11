@@ -374,6 +374,9 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
         }
 
         :root {
+            /* Dynamic font size based on editor */
+            --base-font: var(--vscode-editor-font-size, 14px);
+            
             /* Use VS Code theme colors for seamless integration */
             --bg-dark: var(--vscode-sideBar-background, #1e1e1e);
             --bg-mid: var(--vscode-sideBarSectionHeader-background, #252526);
@@ -402,6 +405,7 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
 
         body {
             font-family: 'VT323', monospace;
+            font-size: var(--base-font);
             background: var(--bg-dark);
             color: var(--text);
             min-height: 100vh;
@@ -494,7 +498,7 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
             background: var(--bg-mid);
             border: 1px solid var(--border);
             border-radius: 6px;
-            font-size: clamp(12px, 4vw, 16px);
+            font-size: 1em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
@@ -505,7 +509,7 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
         }
 
         .fruit-icon {
-            font-size: 18px;
+            font-size: calc(var(--base-font) * 1.3);
             filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
         }
 
@@ -544,7 +548,7 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
         .settings-btn {
             background: none;
             border: none;
-            font-size: 16px;
+            font-size: calc(var(--base-font) * 1.15);
             cursor: pointer;
             padding: 2px;
             opacity: 0.6;
@@ -591,11 +595,11 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
         }
 
         .timer-display {
-            font-size: clamp(24px, 8vw, 36px);
+            font-size: calc(var(--base-font) * 2);
             color: var(--accent);
             text-shadow: 0 0 20px rgba(139, 199, 139, 0.4);
-            letter-spacing: clamp(1px, 1vw, 3px);
-            padding: clamp(4px, 2vw, 6px) clamp(8px, 4vw, 14px);
+            letter-spacing: 2px;
+            padding: 0.4em 0.8em;
             background: rgba(0,0,0,0.25);
             border-radius: 6px;
             border: 1px solid var(--border);
@@ -672,8 +676,8 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
             transform: translateX(-50%);
             background: var(--bg-mid);
             border: 1px solid var(--soil-light);
-            padding: 2px 6px;
-            font-size: 11px;
+            padding: 0.15em 0.4em;
+            font-size: calc(var(--base-font) * 0.85);
             color: var(--accent);
             border-radius: 3px;
             white-space: nowrap;
@@ -688,7 +692,7 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
         }
 
         .preview-indicator {
-            font-size: clamp(10px, 4vw, 14px);
+            font-size: calc(var(--base-font) * 0.9);
             color: var(--text-dim);
             text-align: center;
             width: 100%;
@@ -714,9 +718,9 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
 
         .btn {
             flex: 1;
-            padding: clamp(6px, 3vw, 10px) clamp(4px, 2vw, 6px);
+            padding: 0.5em 0.4em;
             font-family: 'VT323', monospace;
-            font-size: clamp(14px, 5vw, 18px);
+            font-size: calc(var(--base-font) * 1.15);
             border: 2px solid var(--pot);
             background: linear-gradient(180deg, var(--pot-light) 0%, var(--pot) 50%, var(--pot-dark) 100%);
             color: var(--text);
@@ -797,7 +801,7 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
         }
 
         .break-label {
-            font-size: 18px;
+            font-size: calc(var(--base-font) * 1.3);
             color: var(--accent);
             text-shadow: 0 0 10px rgba(139, 199, 139, 0.5);
         }
@@ -806,8 +810,8 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
             background: linear-gradient(180deg, #6a6a6a 0%, #4a4a4a 50%, #3a3a3a 100%);
             border-color: #3a3a3a;
             box-shadow: 0 3px 0 #2a2a2a, 0 4px 8px rgba(0,0,0,0.3);
-            font-size: 14px;
-            padding: 6px 12px;
+            font-size: 1em;
+            padding: 0.4em 0.8em;
         }
 
         .btn.skip-break:hover {
@@ -816,21 +820,21 @@ export class PlantViewProvider implements vscode.WebviewViewProvider {
 
         .break-timer {
             color: var(--accent);
-            font-size: 24px;
+            font-size: calc(var(--base-font) * 1.7);
         }
 
         .stage-label {
-            font-size: clamp(11px, 4vw, 14px);
+            font-size: calc(var(--base-font) * 0.9);
             color: var(--text-dim);
             text-transform: uppercase;
-            letter-spacing: clamp(1px, 0.5vw, 2px);
-            padding: 2px clamp(4px, 2vw, 8px);
+            letter-spacing: 1px;
+            padding: 0.15em 0.5em;
             background: rgba(0,0,0,0.15);
             border-radius: 4px;
         }
 
         .paused-notice {
-            font-size: clamp(11px, 4vw, 14px);
+            font-size: calc(var(--base-font) * 0.9);
             color: var(--flower);
             text-align: center;
             width: 100%;

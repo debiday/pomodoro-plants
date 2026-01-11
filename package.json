@@ -4,6 +4,10 @@
   "description": "Grow pixel art plants while you code! A cozy Pomodoro timer that tracks your VS Code focus time.",
   "version": "0.1.0",
   "publisher": "pomodoro-plants",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/debiday/pomodoro-plants.git"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
