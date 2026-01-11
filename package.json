@@ -1,0 +1,118 @@
+{
+  "name": "pomodoro-plants",
+  "displayName": "Pomodoro Plants",
+  "description": "Grow pixel art plants while you code! A cozy Pomodoro timer that tracks your VS Code focus time.",
+  "version": "0.1.0",
+  "publisher": "pomodoro-plants",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "pomodoro",
+    "plants",
+    "productivity",
+    "pixel art",
+    "timer",
+    "focus"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Pomodoro Plants",
+      "properties": {
+        "pomodoroPlants.pomodoroDuration": {
+          "type": "number",
+          "default": 20,
+          "minimum": 1,
+          "maximum": 120,
+          "description": "Duration of a focus session in minutes."
+        },
+        "pomodoroPlants.shortBreakDuration": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 30,
+          "description": "Duration of a short break in minutes."
+        },
+        "pomodoroPlants.longBreakDuration": {
+          "type": "number",
+          "default": 15,
+          "minimum": 5,
+          "maximum": 60,
+          "description": "Duration of a long break in minutes (after 4 sessions)."
+        },
+        "pomodoroPlants.sessionsBeforeLongBreak": {
+          "type": "number",
+          "default": 4,
+          "minimum": 2,
+          "maximum": 10,
+          "description": "Number of focus sessions before a long break."
+        },
+        "pomodoroPlants.autoStartOnFocus": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically start timer when editor gains focus."
+        },
+        "pomodoroPlants.showNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show notifications when sessions complete."
+        }
+      }
+    },
+    "views": {
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "pomodoroPlants.gardenView",
+          "name": "🌱 Garden",
+          "visibility": "visible",
+          "initialSize": 200
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "pomodoroPlants.startTimer",
+        "title": "Pomodoro Plants: Start Timer"
+      },
+      {
+        "command": "pomodoroPlants.stopTimer",
+        "title": "Pomodoro Plants: Stop Timer"
+      },
+      {
+        "command": "pomodoroPlants.resetTimer",
+        "title": "Pomodoro Plants: Reset Timer"
+      },
+      {
+        "command": "pomodoroPlants.harvestFruit",
+        "title": "Pomodoro Plants: Harvest Fruit"
+      },
+      {
+        "command": "pomodoroPlants.openSettings",
+        "title": "Pomodoro Plants: Open Settings"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  }
+}
+
